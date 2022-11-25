@@ -1,27 +1,19 @@
 class User < ApplicationRecord
   has_secure_password
 
-  
-
   validates :username, 
-    length: {minimum: 4, maximum: 20},
+    length: {in: 3..30},
     uniqueness: true,
-    format: { without URI::MailTo::EMAIL_REGEXP, messsage: "Cannot be an Email"},
-    presence: true
+    format: { without: URI::MailTo::EMAIL_REGEXP }
   
   validates :email,
     length: { in: 3..255 },
     uniqueness: true,
-    format: { with: URI::MailTo::EMAIL_REGEXP },
-    presence: true
+    format: { with: URI::MailTo::EMAIL_REGEXP }
   
-  validates :session_token,
-   uniqueness: true,
-   presence : true
+  validates :session_token, uniqueness: true, presence: true
 
-  validates :password,
-    length: {in 7..255},
-    allow_nil: true
+  validates :password, length: {in: 7..255}, allow_nil: true
 
   before_validation :ensure_session_token 
 

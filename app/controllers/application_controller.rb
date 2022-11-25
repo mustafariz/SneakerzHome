@@ -25,6 +25,7 @@ class ApplicationController < ActionController::API
   def require_logged_in
     unless current_user
       render json: { message: "Unauthorized"}, status: unauthorized
+    end
   end
 
   private 
@@ -50,8 +51,7 @@ class ApplicationController < ActionController::API
       @stack = Rails::BacktraceCleaner.new.clean(error.backtrace)
       render 'api/errors/internal_server_error', status: :internal_server_error
 
-      logger.error "\n#{messsage}:\n\t#{@stack.join("\n\t")}\n"
+      logger.error "\n#{@message}:\n\t#{@stack.join("\n\t")}\n"
     end
   end
-
 end
