@@ -1,0 +1,118 @@
+.form-title {
+  font-weight: lighter;
+  font-size: 35px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #1c1d1d;
+  overflow: auto;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: none;
+  color: #e8e8e1;
+  background-color: black;
+  height: 40px;
+  width: 350px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: none;
+  color: #e4e4dc;
+  background-color: black;
+}
+
+.demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: none;
+  color: #e8e8e1;
+  background-color: black;
+  height: 40px;
+  width: 350px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: none;
+  color: #e8e8e1;
+  background-color: black;
+  cursor: pointer;
+}
+
+
+.email {
+  margin: 10px;
+  padding: 5px;
+  font-weight: lighter;
+}
+
+.password {
+  margin: 10px;
+  padding: 5px;
+  font-weight: lighter;
+}
+
+.email input {
+  width: 350px;
+  height: 35px;
+  margin-top: 5px;
+  border: solid rgb(26, 23, 23);
+  outline: none;
+}
+
+.password input {
+   width: 350px;
+  height: 35px;
+  margin-top: 5px;
+  border: solid rgb(25, 24, 24);
+  outline: none;
+
+  
+ 
+
+}
+
+.signup p {
+  color: black
+}
+
+.errorbox {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.errors {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  list-style: none;
+  text-decoration: none;
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  width: 350px;
+  margin: auto;
+}
+
+
+* {
+  background-color: rgb(241, 231, 231);
+  color: #1c1d1d;
+  font-family: 'Varela Round', 'sans-serif';
+  box-sizing: border-box;
+  max-width: 100%;
+  
+}

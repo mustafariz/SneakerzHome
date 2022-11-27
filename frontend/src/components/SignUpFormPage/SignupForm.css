@@ -1,0 +1,31 @@
+.signup {
+  color: black;
+  text-decoration: none;
+}
+
+.userName {
+  margin: 10px;
+  padding: 5px
+}
+
+.userName input {
+  width: 350px;
+  height: 35px;
+  margin-top: 5px;
+  border: solid rgb(19, 17, 17);
+  outline: none;
+}
+
+.password{
+    margin: 10px;
+    padding: 5px;
+}
+
+.password input {
+  width: 350px;
+  height: 35px;
+  margin-top: 5px;
+  border: solid rgb(31, 28, 28);
+  outline: none;
+}
+

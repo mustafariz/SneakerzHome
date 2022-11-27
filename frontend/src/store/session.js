@@ -18,7 +18,7 @@ export const getCurrentUser = state => {
 
 const storeCSRFToken = response => {
   const csrfToken = response.headers.get('X-CSRF-Token');
-  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfFetch);
+  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
 }
 
 const storeCurrentUser = user => {
