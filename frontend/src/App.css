@@ -1,0 +1,31 @@
+:root{
+  /* --box-shadow: rgb(230, 235, 239);
+  --border-grey: rgb(125, 131, 130);
+  --white-blur: rgba(247, 251, 254, 0.9);
+  --green: rgb(16, 161, 115); */
+  /* --dark-green: ##003F07; */
+}
+
+.App {
+  text-align: center;
+}
+
+.page-container{
+  padding-top: 100px;
+}
+button{
+  color:var(--border-grey);
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button:hover{
+  font-weight: bold;
+  transform: scale(1.1);
+  cursor: pointer;
+}

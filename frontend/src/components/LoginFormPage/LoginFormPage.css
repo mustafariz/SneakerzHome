@@ -3,6 +3,7 @@
   font-size: 35px;
   margin-top: 40px;
   margin-bottom: 20px;
+  background-color: transparent;
 }
 
 .form {
@@ -11,14 +12,19 @@
   flex-direction: column;
   color: #1c1d1d;
   overflow: auto;
+   background-image: url(../Images/kris-gerhard-0BKZfcamvGg-unsplash.jpg);
+  background-repeat: no-repeat; 
+  width: 100vw;
+  height: 130vh;
+  background-size: cover;
 }
 
-.login {
+.login  {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: none;
-  color: #e8e8e1;
+   color: #e8e8e1; 
   background-color: black;
   height: 40px;
   width: 350px;
@@ -27,8 +33,9 @@
   margin-bottom: 20px;
   cursor: pointer;
   border: none;
-  color: #e4e4dc;
+  color: #f4f4ed;
   background-color: black;
+
 }
 
 .demo {
@@ -54,6 +61,7 @@
   margin: 10px;
   padding: 5px;
   font-weight: lighter;
+  
 }
 
 .password {
@@ -71,15 +79,11 @@
 }
 
 .password input {
-   width: 350px;
+  width: 350px;
   height: 35px;
   margin-top: 5px;
-  border: solid rgb(25, 24, 24);
+  border: solid rgb(26, 23, 23);
   outline: none;
-
-  
- 
-
 }
 
 .signup p {
@@ -109,10 +113,15 @@
 
 
 * {
-  background-color: rgb(241, 231, 231);
+  /* background-color: rgb(241, 231, 231); */
   color: #1c1d1d;
   font-family: 'Varela Round', 'sans-serif';
   box-sizing: border-box;
   max-width: 100%;
   
+}
+
+.blur{
+  backdrop-filter: blur(5px);
+  border: 1px solid black;
 }

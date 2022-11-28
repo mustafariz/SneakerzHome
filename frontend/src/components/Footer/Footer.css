@@ -1,0 +1,23 @@
+.footer-container{
+  color: #191617;
+  text-align: center;
+   margin-top: 20px; 
+  margin: auto;
+  padding: 30px 10px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  bottom: auto;
+  position: fixed;
+  
+
+}
+.footer-container .icons{
+  font-size: 30px;
+  display: flex;
+  gap: 10px;
+}
+

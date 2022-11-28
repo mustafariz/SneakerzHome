@@ -11,7 +11,7 @@ function LoginFormPage() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />
+  // if (sessionUser) return <Redirect to="/" />
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +33,7 @@ function LoginFormPage() {
   return (
     <>
     <div className="form">
+      <div className="blur">
       <h1 className="form-title">Login</h1>
       <form onSubmit={handleSubmit}>
         <ul className="errorbox">
@@ -63,7 +64,7 @@ function LoginFormPage() {
           </label>
          </div>
 
-         <button className="login" type="submit">Sign In</button>
+         <button className="login " type="submit">Sign In</button>
          <button className="demo" type="submit" 
          onClick={() => dispatch(sessionActions.login({credential: "demo_user@gmail.com", password: "password"}))}>
           Demo User Login
@@ -74,6 +75,7 @@ function LoginFormPage() {
       <div className="signup">
         <Link to="/signup"><p>Create Account</p></Link>
       </div>
+    </div>
     </div>
     </>
   )

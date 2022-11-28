@@ -5,13 +5,20 @@ import SignupFormPage from  "./components/SignUpFormPage";
 import ProfilePage from "./components/ProfilePage";
 import Navbar from "./components/Navbar";
 import AboutMe from "./components/AboutMePage";
+import Footer from "./components/Footer";
+import './App.css'
+
+
 
 function App() {
   return (
     
     <>
+    
+     
+     
      <Navbar />
-    <Switch>
+     <Switch>
 
       <Route exact path="/">
         <Home />
@@ -25,7 +32,7 @@ function App() {
         <SignupFormPage/>
       </Route>
 
-      <Route path="/users/:id">
+       <Route path="/users/:id">
         <ProfilePage/>
       </Route>
 
@@ -33,7 +40,11 @@ function App() {
         <AboutMe/>
       </Route>
 
+
+
     </Switch>
+    <Footer/>
+
     </>
   );
 }

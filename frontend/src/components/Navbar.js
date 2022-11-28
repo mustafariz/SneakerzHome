@@ -1,52 +1,48 @@
-import React from "react";
-import { FaInstagramSquare } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import './Navbar.css';
 
-import "./Navbar.css";
 
-const Navbar = () => {
+function Navbar() {
+  const sessionUser = useSelector(state => state.session.user);
+  const location = useLocation();
+  const [cartMenu, setCartMenu] = useState(false);
+  const [toggleSearch, setToggleSearch] = useState(false);
+
+
+  
   return (
-    <>
-    
-     <nav className = "main-nav">
-      <div className = "logo">
-        <h2>
-          <span>S</span>neakerz
-          <span>H</span>ome
-        </h2>
+  <>
+  {/* <div className={navToggle()}> */}
+  <div>
+    <ul>
+      <li className='navitems'>
+
+        <div className='nav-name'><NavLink exact to="/" style={{ textDecoration: 'none' }}><h1 className='name'>SneakerzHome</h1></NavLink></div>
+          <div className='nav-links'>
+            <NavLink exact to="/" style={{ textDecoration: 'none' }}><div className='store'>Store</div></NavLink>
+            <NavLink exact to="/catalog" style={{ textDecoration: 'none' }}><div className='catalog'>Brands</div></NavLink>
+            <NavLink exact to="/about-me" style={{ textDecoration: 'none' }}><div className='about-me'>About </div></NavLink>
+          </div>
+      </li>
+    </ul>
+   
+    <div className='icons'>
+      {/* <div className='profile-icon'>{sessionLinks}</div> */}
+      <div className="search-icon" onClick={(() => setToggleSearch(true))}><i className="fa-solid fa-magnifying-glass"></i></div>
+
+      <div className='cart-collapse'>
+        <button className="cart" onClick={() => setCartMenu(true)}>
+          <div className='cart-icon'><i className="fa-solid fa-cart-shopping"></i></div>
+        </button>
+        {/* {cartMenu && <CartIndexPage closeCartMenu={setCartMenu}/>} */}
       </div>
-
-     <div className ="menu-link">
-        <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Brands</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        </ul>
-        </div>
-
-       <div className="social-media">
-         <ul className="social-media-desktop">
-            <li>
-              <a 
-              href="https://www.instagram.com/mustafariz/">
-              <FaInstagramSquare className="instagram"/>
-              </a>
-              </li>
-          </ul>
-       </div>
-
-     </nav>
-    </>
-
-  )
+    </div>
+  </div>
+  </>
+  );
 }
 
 export default Navbar;
