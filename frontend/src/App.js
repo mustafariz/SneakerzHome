@@ -6,6 +6,7 @@ import ProfilePage from "./components/ProfilePage";
 import Navbar from "./components/Navbar";
 import AboutMe from "./components/AboutMePage";
 import Footer from "./components/Footer";
+import ProductIndexPage from "./components/ProductIndexPage";
 import './App.css'
 
 
@@ -34,6 +35,10 @@ function App() {
 
        <Route path="/users/:id">
         <ProfilePage/>
+      </Route>
+
+      <Route path="/products">
+        <ProductIndexPage />
       </Route>
 
       <Route path="/about-me">
