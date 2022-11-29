@@ -7488,3 +7488,568 @@ Started GET "/api/products" for 127.0.0.1 at 2022-11-28 13:30:09 -0800
   
 ActionController::RoutingError (No route matches [GET] "/api/products"):
   
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Destroy (8.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:59:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo_User"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo_user@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "demo_user@gmail.com"], ["username", "Demo_User"], ["password_digest", "[FILTERED]"], ["session_token", "[FILTERED]"], ["created_at", "2022-11-28 22:01:08.512163"], ["updated_at", "2022-11-28 22:01:08.512163"]]
+  [1m[36mProduct Create (8.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Force Ones"], ["brand", "Nike"], ["price", 110], ["description", "This is what legends are made of. The Nike Air Force 1 LE brings back the ’82 hardwood icon into an everyday style in all-white or all-black. The durability, feel and Air are still there for those who love a classic."], ["created_at", "2022-11-28 22:01:08.527949"], ["updated_at", "2022-11-28 22:01:08.527949"]]
+  [1m[36mProduct Create (0.9ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Metcon 7"], ["brand", "Nike"], ["price", 110], ["description", "The Nike Metcon 7 is the gold standard for weight training—even tougher and more stable than previous versions. We've also added React foam that ups the comfort to keep you ready for high-intensity cardio. Plus, a tab locks down your laces so you can forget about them coming untied when you're focused on your next PR."], ["created_at", "2022-11-28 22:01:08.537143"], ["updated_at", "2022-11-28 22:01:08.537143"]]
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Stan Smith Shoes"], ["brand", "adidas"], ["price", 76], ["description", "Millions of people have laced into adidas Stan Smith sneakers since the '70s, and every person puts their own spin on the look. So simple, versatile and fresh, these classic shoes adapt effortlessly. They can be dressed up or down. They look just as good on runways as on city streets. So wherever you wear this pair, you can count on them to help express your personal style. We made them, but you get to make them your own.\n\n  Made in part with recycled content generated from production waste, e.g., cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content."], ["created_at", "2022-11-28 22:01:08.539113"], ["updated_at", "2022-11-28 22:01:08.539113"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "NMD_R1 PRIMEBLUE SHOES"], ["brand", "adidas"], ["price", 150], ["description", "Pack your bag, lace up and get going. City adventures beckon in these NMD_R1 shoes. An update to an acclaimed '80s runner from the adidas archive, these modern sneakers have a soft, stretchy knit upper and energy-returning Boost cushioning for all-day comfort. Bold color and signature midsole plugs make a statement, so wherever you're headed, you're sure to show up in style.\n\n  This product is made with Primeblue, a high-performance recycled material made in part with Parley Ocean Plastic. 50% of the upper is textile, 75% of the textile is Primeblue yarn. No virgin polyester."], ["created_at", "2022-11-28 22:01:08.540849"], ["updated_at", "2022-11-28 22:01:08.540849"]]
+  [1m[36mProduct Create (1.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Men's UA HOVR™ Turbulence Running Shoes"], ["brand", "underarmour"], ["price", 70], ["description", "Distance runners need a perfect mix of cushion, bounce, durability, and efficiency. And that's exactly what you're getting with the UA HOVR™ Turbulance—responsive cushioning, a smooth ride, and miles of comfort."], ["created_at", "2022-11-28 22:01:08.542155"], ["updated_at", "2022-11-28 22:01:08.542155"]]
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Club C 85 Vintage Shoes"], ["brand", "Reebok"], ["price", 85], ["description", "Talking their cue from the '80s court classic, these shoes are all about simplicity. They have a leather upper and a timeless easy-to-wear style. The EVA midsole gives you lightweight cushioning."], ["created_at", "2022-11-28 22:01:08.544731"], ["updated_at", "2022-11-28 22:01:08.544731"]]
+  [1m[36mProduct Create (3.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Jordan 1 Mid Shoes"], ["brand", "nike"], ["price", 125], ["description", "Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.\n "], ["created_at", "2022-11-28 22:01:08.546543"], ["updated_at", "2022-11-28 22:01:08.546543"]]
+  [1m[36mProduct Create (2.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Blazer Mid '77 Vintage"], ["brand", "nike"], ["price", 105], ["description", "In the ‘70s, Nike was the new shoe on the block. So new in fact, we were still breaking into the basketball scene and testing prototypes on the feet of our local team. Of course, the design improved over the years, but the name stuck. The Nike Blazer Mid ’77 Vintage—classic since the beginning."], ["created_at", "2022-11-28 22:01:08.550720"], ["updated_at", "2022-11-28 22:01:08.550720"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Air VaporMax Plus"], ["brand", "nike"], ["price", 178], ["description", "The Nike Air VaporMax Plus looks to the past and propels you into the future. Nodding to the 1998 Air Max Plus with its floating cage, padded upper and heel logo, it adds revolutionary VaporMax Air technology to ramp up the comfort and create a modern look."], ["created_at", "2022-11-28 22:01:08.554510"], ["updated_at", "2022-11-28 22:01:08.554510"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", " Nike ZoomX Invincible Run Flyknit 2"], ["brand", "nike"], ["price", 180], ["description", "Avoiding injury is crucial no matter if you’re tackling a 20-miler in the middle of marathon prep or stockpiling tempo runs together. Specifically designed to offset the attrition of your toughest trainings, these shoes boast a stack of mattress-like cushioning to help you stay on your feet today, tomorrow and beyond. An unbelievable sense of springy propulsion entices you into taking another stride (and then another) for responsive comfort that lets you focus on your run—not the potential repercussions."], ["created_at", "2022-11-28 22:01:08.555705"], ["updated_at", "2022-11-28 22:01:08.555705"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "440 SUPERSTAR SHOES"], ["brand", "adidas"], ["price", 65], ["description", "From the basketball court to the classroom. Everyone deserves a pair of adidas Superstars Shoes. This kids' version celebrates 50 years of the classic shell-toe design. From the distinctive serrated 3-Stripes to the comfortable rubber cupsole, this anniversary edition honors an icon. Whether they sport all white, all black or something in between, these shoes keep little ones looking fresh."], ["created_at", "2022-11-28 22:01:08.556727"], ["updated_at", "2022-11-28 22:01:08.556727"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "SAMBA CLASSIC SHOES"], ["brand", "adidas"], ["price", 60], ["description", "Getting up and down the field with speed is the name of the indoor game. The Samba has dominated indoor soccer for decades for a reason. This kids' version of the legendary soccer shoes features a leather upper and a lightweight EVA midsole for better response on indoor surfaces."], ["created_at", "2022-11-28 22:01:08.558420"], ["updated_at", "2022-11-28 22:01:08.558420"]]
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Destroy (5.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:59:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo_User"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo_user@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "demo_user@gmail.com"], ["username", "Demo_User"], ["password_digest", "[FILTERED]"], ["session_token", "[FILTERED]"], ["created_at", "2022-11-28 22:04:21.604149"], ["updated_at", "2022-11-28 22:04:21.604149"]]
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Force Ones"], ["brand", "Nike"], ["price", 110], ["description", "This is what legends are made of. The Nike Air Force 1 LE brings back the ’82 hardwood icon into an everyday style in all-white or all-black. The durability, feel and Air are still there for those who love a classic."], ["created_at", "2022-11-28 22:04:21.613257"], ["updated_at", "2022-11-28 22:04:21.613257"]]
+  [1m[36mProduct Create (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Metcon 7"], ["brand", "Nike"], ["price", 110], ["description", "The Nike Metcon 7 is the gold standard for weight training—even tougher and more stable than previous versions. We've also added React foam that ups the comfort to keep you ready for high-intensity cardio. Plus, a tab locks down your laces so you can forget about them coming untied when you're focused on your next PR."], ["created_at", "2022-11-28 22:04:21.614913"], ["updated_at", "2022-11-28 22:04:21.614913"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Stan Smith Shoes"], ["brand", "adidas"], ["price", 76], ["description", "Millions of people have laced into adidas Stan Smith sneakers since the '70s, and every person puts their own spin on the look. So simple, versatile and fresh, these classic shoes adapt effortlessly. They can be dressed up or down. They look just as good on runways as on city streets. So wherever you wear this pair, you can count on them to help express your personal style. We made them, but you get to make them your own.\n\n  Made in part with recycled content generated from production waste, e.g., cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content."], ["created_at", "2022-11-28 22:04:21.616741"], ["updated_at", "2022-11-28 22:04:21.616741"]]
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "NMD_R1 PRIMEBLUE SHOES"], ["brand", "adidas"], ["price", 150], ["description", "Pack your bag, lace up and get going. City adventures beckon in these NMD_R1 shoes. An update to an acclaimed '80s runner from the adidas archive, these modern sneakers have a soft, stretchy knit upper and energy-returning Boost cushioning for all-day comfort. Bold color and signature midsole plugs make a statement, so wherever you're headed, you're sure to show up in style.\n\n  This product is made with Primeblue, a high-performance recycled material made in part with Parley Ocean Plastic. 50% of the upper is textile, 75% of the textile is Primeblue yarn. No virgin polyester."], ["created_at", "2022-11-28 22:04:21.618440"], ["updated_at", "2022-11-28 22:04:21.618440"]]
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Men's UA HOVR™ Turbulence Running Shoes"], ["brand", "underarmour"], ["price", 70], ["description", "Distance runners need a perfect mix of cushion, bounce, durability, and efficiency. And that's exactly what you're getting with the UA HOVR™ Turbulance—responsive cushioning, a smooth ride, and miles of comfort."], ["created_at", "2022-11-28 22:04:21.620415"], ["updated_at", "2022-11-28 22:04:21.620415"]]
+  [1m[36mProduct Create (1.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Club C 85 Vintage Shoes"], ["brand", "Reebok"], ["price", 85], ["description", "Talking their cue from the '80s court classic, these shoes are all about simplicity. They have a leather upper and a timeless easy-to-wear style. The EVA midsole gives you lightweight cushioning."], ["created_at", "2022-11-28 22:04:21.622506"], ["updated_at", "2022-11-28 22:04:21.622506"]]
+  [1m[36mProduct Create (1.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Jordan 1 Mid Shoes"], ["brand", "nike"], ["price", 125], ["description", "Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.\n "], ["created_at", "2022-11-28 22:04:21.624559"], ["updated_at", "2022-11-28 22:04:21.624559"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Blazer Mid '77 Vintage"], ["brand", "nike"], ["price", 105], ["description", "In the ‘70s, Nike was the new shoe on the block. So new in fact, we were still breaking into the basketball scene and testing prototypes on the feet of our local team. Of course, the design improved over the years, but the name stuck. The Nike Blazer Mid ’77 Vintage—classic since the beginning."], ["created_at", "2022-11-28 22:04:21.627146"], ["updated_at", "2022-11-28 22:04:21.627146"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Air VaporMax Plus"], ["brand", "nike"], ["price", 178], ["description", "The Nike Air VaporMax Plus looks to the past and propels you into the future. Nodding to the 1998 Air Max Plus with its floating cage, padded upper and heel logo, it adds revolutionary VaporMax Air technology to ramp up the comfort and create a modern look."], ["created_at", "2022-11-28 22:04:21.628293"], ["updated_at", "2022-11-28 22:04:21.628293"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", " Nike ZoomX Invincible Run Flyknit 2"], ["brand", "nike"], ["price", 180], ["description", "Avoiding injury is crucial no matter if you’re tackling a 20-miler in the middle of marathon prep or stockpiling tempo runs together. Specifically designed to offset the attrition of your toughest trainings, these shoes boast a stack of mattress-like cushioning to help you stay on your feet today, tomorrow and beyond. An unbelievable sense of springy propulsion entices you into taking another stride (and then another) for responsive comfort that lets you focus on your run—not the potential repercussions."], ["created_at", "2022-11-28 22:04:21.629392"], ["updated_at", "2022-11-28 22:04:21.629392"]]
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "440 SUPERSTAR SHOES"], ["brand", "adidas"], ["price", 65], ["description", "From the basketball court to the classroom. Everyone deserves a pair of adidas Superstars Shoes. This kids' version celebrates 50 years of the classic shell-toe design. From the distinctive serrated 3-Stripes to the comfortable rubber cupsole, this anniversary edition honors an icon. Whether they sport all white, all black or something in between, these shoes keep little ones looking fresh."], ["created_at", "2022-11-28 22:04:21.630665"], ["updated_at", "2022-11-28 22:04:21.630665"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "SAMBA CLASSIC SHOES"], ["brand", "adidas"], ["price", 60], ["description", "Getting up and down the field with speed is the name of the indoor game. The Samba has dominated indoor soccer for decades for a reason. This kids' version of the legendary soccer shoes features a leather upper and a lightweight EVA midsole for better response on indoor surfaces."], ["created_at", "2022-11-28 22:04:21.631531"], ["updated_at", "2022-11-28 22:04:21.631531"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Men's UA HOVR™ Phantom 3 Reflect Running Shoes"], ["brand", "underarmor"], ["price", 98], ["description", "The off-season is for getting better. That means lots of running. Fast, stretchy UA HOVR™ Phantom 3 helps you explode through interval after interval with even more energy-returning UA HOVR™ cushioning. Run now…win later."], ["created_at", "2022-11-28 22:04:21.632674"], ["updated_at", "2022-11-28 22:04:21.632674"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:04:39 -0800
+Started GET "/products" for 127.0.0.1 at 2022-11-28 14:04:39 -0800
+Processing by Api::SessionsController#show as JSON
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 301ms (Views: 0.2ms | ActiveRecord: 31.6ms | Allocations: 27602)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:04:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/products"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:07:52 -0800
+Started GET "/products" for 127.0.0.1 at 2022-11-28 14:07:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (19.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 42ms (Views: 0.3ms | ActiveRecord: 29.2ms | Allocations: 12055)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:07:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/products"):
+  
+Started GET "/products" for 127.0.0.1 at 2022-11-28 14:10:24 -0800
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:10:24 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 53ms (Views: 0.2ms | ActiveRecord: 30.2ms | Allocations: 24267)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:10:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/products"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:13:35 -0800
+Started GET "/About-me" for 127.0.0.1 at 2022-11-28 14:13:35 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/About-me"):
+  
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 47ms (Views: 0.2ms | ActiveRecord: 29.8ms | Allocations: 21748)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:13:39 -0800
+Started GET "/products" for 127.0.0.1 at 2022-11-28 14:13:39 -0800
+Processing by Api::SessionsController#show as JSON
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+  [1m[36mUser Load (16.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 31ms (Views: 0.2ms | ActiveRecord: 16.0ms | Allocations: 8837)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:13:39 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/products"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:14:55 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 6.2ms | Allocations: 847)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:14:55 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/products"):
+  
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:20:32 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 37ms (Views: 0.2ms | ActiveRecord: 32.2ms | Allocations: 2179)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:20:32 -0800
+
+SyntaxError - syntax error, unexpected ':', expecting `then' or ';' or '\n'
+    if @products.length > 0:
+                           ^
+/Users/mustafarizvi/development/code/SneakerzHome/app/controllers/api/products_controller.rb:18: else without rescue is useless
+    else
+    ^~~~
+/Users/mustafarizvi/development/code/SneakerzHome/app/controllers/api/products_controller.rb:22: syntax error, unexpected `end', expecting end-of-input:
+  app/controllers/api/products_controller.rb:16:in `'
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:20:35 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 857)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:20:35 -0800
+
+SyntaxError - syntax error, unexpected ':', expecting `then' or ';' or '\n'
+    if @products.length > 0:
+                           ^
+/Users/mustafarizvi/development/code/SneakerzHome/app/controllers/api/products_controller.rb:18: else without rescue is useless
+    else
+    ^~~~
+/Users/mustafarizvi/development/code/SneakerzHome/app/controllers/api/products_controller.rb:22: syntax error, unexpected `end', expecting end-of-input:
+  app/controllers/api/products_controller.rb:16:in `'
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 14:21:11 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 12.3ms | Allocations: 2165)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:21:12 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (10.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 41.4ms | Allocations: 6095)
+Completed 200 OK in 43ms (Views: 14.2ms | ActiveRecord: 28.4ms | Allocations: 6972)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 14:22:03 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 4.8ms | Allocations: 1407)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 1802)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:18:13 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 520ms (Views: 1.3ms | ActiveRecord: 344.0ms | Allocations: 3795)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:18:14 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 838)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:18:14 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (56.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 69.0ms | Allocations: 1441)
+Completed 200 OK in 79ms (Views: 19.7ms | ActiveRecord: 56.9ms | Allocations: 1811)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:18:14 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 8.5ms | Allocations: 1398)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.5ms | Allocations: 1768)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:18:56 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 831)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:18:56 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 3.7ms | Allocations: 830)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:18:56 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 5.8ms | Allocations: 1399)
+Completed 200 OK in 10ms (Views: 5.4ms | ActiveRecord: 1.5ms | Allocations: 1769)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:18:56 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 12.9ms | Allocations: 1398)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.8ms | Allocations: 1768)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:19:07 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 27ms (Views: 0.5ms | ActiveRecord: 1.4ms | Allocations: 842)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:19:07 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 842)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:19:07 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 3.8ms | Allocations: 1398)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.8ms | Allocations: 1768)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:19:07 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 7.8ms | Allocations: 1398)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 1.9ms | Allocations: 1780)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:19:22 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (16.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 16.1ms | Allocations: 848)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:19:22 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 848)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:19:22 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 10.9ms | Allocations: 1398)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.7ms | Allocations: 1768)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:19:22 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 26.0ms | Allocations: 1398)
+Completed 200 OK in 66ms (Views: 63.2ms | ActiveRecord: 0.4ms | Allocations: 1768)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:20:01 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 50ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 841)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:20:01 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 10ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 840)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:20:01 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 5.2ms | Allocations: 1398)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 1770)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:20:01 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 13.2ms | Allocations: 1398)
+Completed 200 OK in 16ms (Views: 12.9ms | ActiveRecord: 1.6ms | Allocations: 1770)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:20:22 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 20ms (Views: 0.6ms | ActiveRecord: 9.0ms | Allocations: 834)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:20:22 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 834)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:20:22 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 4.2ms | Allocations: 1398)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 1.3ms | Allocations: 1768)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:20:22 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 13.8ms | Allocations: 1398)
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.3ms | Allocations: 1766)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:23:28 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 34ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 846)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:23:28 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 28ms (Views: 2.8ms | ActiveRecord: 0.7ms | Allocations: 846)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:23:28 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 28.9ms | Allocations: 1398)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.4ms | Allocations: 1774)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:23:28 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 12.5ms | Allocations: 1398)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.8ms | Allocations: 1774)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:25:25 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 78ms (Views: 15.2ms | ActiveRecord: 1.2ms | Allocations: 842)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:25:53 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 17ms (Views: 3.9ms | ActiveRecord: 0.7ms | Allocations: 842)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:27:12 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 836)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:27:13 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 8.0ms | Allocations: 1398)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.4ms | Allocations: 1770)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:28:17 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 847)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:28:17 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 846)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:28:17 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 7.6ms | Allocations: 1411)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.3ms | Allocations: 1790)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:28:17 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 8.5ms | Allocations: 1398)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.3ms | Allocations: 1774)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:37:29 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 158ms (Views: 0.6ms | ActiveRecord: 39.1ms | Allocations: 3769)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:37:29 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (19.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 27.8ms | Allocations: 1453)
+Completed 200 OK in 29ms (Views: 9.1ms | ActiveRecord: 19.1ms | Allocations: 1830)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:42:21 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 842)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-28 21:42:21 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 4.7ms | Allocations: 842)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:42:21 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 12.8ms | Allocations: 1398)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.9ms | Allocations: 1768)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-28 21:42:21 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 9.2ms | Allocations: 1398)
+Completed 200 OK in 22ms (Views: 17.4ms | ActiveRecord: 0.3ms | Allocations: 1774)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 09:09:53 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (11.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 321ms (Views: 2.6ms | ActiveRecord: 101.6ms | Allocations: 3819)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 09:10:02 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 842)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-29 09:10:02 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (6.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 84.4ms | Allocations: 1453)
+Completed 200 OK in 144ms (Views: 134.5ms | ActiveRecord: 6.6ms | Allocations: 1828)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 09:12:31 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 37ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 836)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-29 09:12:31 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 6.3ms | Allocations: 1398)
+Completed 200 OK in 29ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 1772)
+
+

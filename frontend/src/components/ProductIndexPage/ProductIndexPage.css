@@ -1,0 +1,26 @@
+
+  
+
+
+  .products {
+    margin-top: 50px;
+    padding-bottom: 10%;
+    background-image: url(../Images/image1.jpeg);
+    background-repeat: no-repeat; 
+    width: 100vw;
+    height: 130vh;
+    background-size: cover;
+}
+
+.products ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.products ul li {
+    list-style: none;
+    flex-basis: 26%;
+    flex-direction: column;
+}

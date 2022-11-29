@@ -127,7 +127,7 @@ samba_classic_shoes =Product.create(
   )
 
 mens_ua_hovr_phantom_3_reflect_running_shoes = Product.create(
-  name =" Men's UA HOVR™ Phantom 3 Reflect Running Shoes",
+  name: "Men's UA HOVR™ Phantom 3 Reflect Running Shoes",
   brand: "underarmor",
   price: 98,
   description: "The off-season is for getting better. That means lots of running. Fast, stretchy UA HOVR™ Phantom 3 helps you explode through interval after interval with even more energy-returning UA HOVR™ cushioning. Run now…win later."
