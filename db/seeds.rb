@@ -11,9 +11,11 @@ require 'open-uri'
 ApplicationRecord.transaction do
   puts "Destroying tables..."
 
+  Product.destroy_all
   User.destroy_all
   puts "Resetting primary keys..."
   ApplicationRecord.connection.reset_pk_sequence!("users")
+  ApplicationRecord.connection.reset_pk_sequence!("products")
 
   puts "Creating Users..."
 
@@ -26,7 +28,7 @@ ApplicationRecord.transaction do
   puts "Creating Products..."
 
   air_force_1 = Product.create(
-    name: "Air Force Ones",
+    name: "Air Force 1",
     brand: "Nike",
     price: 110,
     description: "This is what legends are made of. The Nike Air Force 1 LE brings back the ’82 hardwood icon into an everyday style in all-white or all-black. The durability, feel and Air are still there for those who love a classic."
@@ -133,9 +135,23 @@ mens_ua_hovr_phantom_3_reflect_running_shoes = Product.create(
   description: "The off-season is for getting better. That means lots of running. Fast, stretchy UA HOVR™ Phantom 3 helps you explode through interval after interval with even more energy-returning UA HOVR™ cushioning. Run now…win later."
  )
 
+fresh_foam_x_1080v12 = Product.create(
+  name: "Fresh Foam X 1080v12",
+  brand: "New Balance",
+  price:  159,
+  description: "This model runs large, compared to previous versions. You may consider ordering down from your normal size.
 
+  If we only made one running shoe, that shoe would be the 1080. What makes the 1080 unique isn’t just that it’s the best running shoe we make, it’s also the most versatile. The 1080 delivers top-of-the-line performance to every kind of runner, whether you’re training for world-class competition, or catching a rush hour train. The Fresh Foam X 1080v12 represents a consistent progression of the models signature qualities"
+)
  
- 
+ chuck_taylor_all_star_classic =Product.create(
+ name: " Chuck Taylor All Star Classic",
+ brand: "Converse",
+ price: 65,
+ description: "Its how and where you take your Chucks. The legacy is long, but what comes next is up to you. We just make the shoe. You make the stories"
+
+
+ )
  
  
  

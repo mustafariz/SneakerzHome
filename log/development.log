@@ -8053,3 +8053,194 @@ Processing by Api::ProductsController#index as JSON
 Completed 200 OK in 29ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 1772)
 
 
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 10:52:28 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 257ms (Views: 1.1ms | ActiveRecord: 74.3ms | Allocations: 3739)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 10:52:34 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 3.8ms | Allocations: 848)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-29 10:52:34 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (50.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 66.4ms | Allocations: 1440)
+Completed 200 OK in 69ms (Views: 16.7ms | ActiveRecord: 50.8ms | Allocations: 1800)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Destroy (10.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:59:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo_User"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo_user@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (5.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "demo_user@gmail.com"], ["username", "Demo_User"], ["password_digest", "[FILTERED]"], ["session_token", "[FILTERED]"], ["created_at", "2022-11-29 19:00:13.422680"], ["updated_at", "2022-11-29 19:00:13.422680"]]
+  [1m[36mProduct Create (3.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Force 1"], ["brand", "Nike"], ["price", 110], ["description", "This is what legends are made of. The Nike Air Force 1 LE brings back the ’82 hardwood icon into an everyday style in all-white or all-black. The durability, feel and Air are still there for those who love a classic."], ["created_at", "2022-11-29 19:00:13.435037"], ["updated_at", "2022-11-29 19:00:13.435037"]]
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Metcon 7"], ["brand", "Nike"], ["price", 110], ["description", "The Nike Metcon 7 is the gold standard for weight training—even tougher and more stable than previous versions. We've also added React foam that ups the comfort to keep you ready for high-intensity cardio. Plus, a tab locks down your laces so you can forget about them coming untied when you're focused on your next PR."], ["created_at", "2022-11-29 19:00:13.439246"], ["updated_at", "2022-11-29 19:00:13.439246"]]
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Stan Smith Shoes"], ["brand", "adidas"], ["price", 76], ["description", "Millions of people have laced into adidas Stan Smith sneakers since the '70s, and every person puts their own spin on the look. So simple, versatile and fresh, these classic shoes adapt effortlessly. They can be dressed up or down. They look just as good on runways as on city streets. So wherever you wear this pair, you can count on them to help express your personal style. We made them, but you get to make them your own.\n\n  Made in part with recycled content generated from production waste, e.g., cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content."], ["created_at", "2022-11-29 19:00:13.439917"], ["updated_at", "2022-11-29 19:00:13.439917"]]
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "NMD_R1 PRIMEBLUE SHOES"], ["brand", "adidas"], ["price", 150], ["description", "Pack your bag, lace up and get going. City adventures beckon in these NMD_R1 shoes. An update to an acclaimed '80s runner from the adidas archive, these modern sneakers have a soft, stretchy knit upper and energy-returning Boost cushioning for all-day comfort. Bold color and signature midsole plugs make a statement, so wherever you're headed, you're sure to show up in style.\n\n  This product is made with Primeblue, a high-performance recycled material made in part with Parley Ocean Plastic. 50% of the upper is textile, 75% of the textile is Primeblue yarn. No virgin polyester."], ["created_at", "2022-11-29 19:00:13.440406"], ["updated_at", "2022-11-29 19:00:13.440406"]]
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Men's UA HOVR™ Turbulence Running Shoes"], ["brand", "underarmour"], ["price", 70], ["description", "Distance runners need a perfect mix of cushion, bounce, durability, and efficiency. And that's exactly what you're getting with the UA HOVR™ Turbulance—responsive cushioning, a smooth ride, and miles of comfort."], ["created_at", "2022-11-29 19:00:13.441039"], ["updated_at", "2022-11-29 19:00:13.441039"]]
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Club C 85 Vintage Shoes"], ["brand", "Reebok"], ["price", 85], ["description", "Talking their cue from the '80s court classic, these shoes are all about simplicity. They have a leather upper and a timeless easy-to-wear style. The EVA midsole gives you lightweight cushioning."], ["created_at", "2022-11-29 19:00:13.441515"], ["updated_at", "2022-11-29 19:00:13.441515"]]
+  [1m[36mProduct Create (3.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Jordan 1 Mid Shoes"], ["brand", "nike"], ["price", 125], ["description", "Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.\n "], ["created_at", "2022-11-29 19:00:13.442537"], ["updated_at", "2022-11-29 19:00:13.442537"]]
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Blazer Mid '77 Vintage"], ["brand", "nike"], ["price", 105], ["description", "In the ‘70s, Nike was the new shoe on the block. So new in fact, we were still breaking into the basketball scene and testing prototypes on the feet of our local team. Of course, the design improved over the years, but the name stuck. The Nike Blazer Mid ’77 Vintage—classic since the beginning."], ["created_at", "2022-11-29 19:00:13.446269"], ["updated_at", "2022-11-29 19:00:13.446269"]]
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Air VaporMax Plus"], ["brand", "nike"], ["price", 178], ["description", "The Nike Air VaporMax Plus looks to the past and propels you into the future. Nodding to the 1998 Air Max Plus with its floating cage, padded upper and heel logo, it adds revolutionary VaporMax Air technology to ramp up the comfort and create a modern look."], ["created_at", "2022-11-29 19:00:13.446918"], ["updated_at", "2022-11-29 19:00:13.446918"]]
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", " Nike ZoomX Invincible Run Flyknit 2"], ["brand", "nike"], ["price", 180], ["description", "Avoiding injury is crucial no matter if you’re tackling a 20-miler in the middle of marathon prep or stockpiling tempo runs together. Specifically designed to offset the attrition of your toughest trainings, these shoes boast a stack of mattress-like cushioning to help you stay on your feet today, tomorrow and beyond. An unbelievable sense of springy propulsion entices you into taking another stride (and then another) for responsive comfort that lets you focus on your run—not the potential repercussions."], ["created_at", "2022-11-29 19:00:13.447523"], ["updated_at", "2022-11-29 19:00:13.447523"]]
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "440 SUPERSTAR SHOES"], ["brand", "adidas"], ["price", 65], ["description", "From the basketball court to the classroom. Everyone deserves a pair of adidas Superstars Shoes. This kids' version celebrates 50 years of the classic shell-toe design. From the distinctive serrated 3-Stripes to the comfortable rubber cupsole, this anniversary edition honors an icon. Whether they sport all white, all black or something in between, these shoes keep little ones looking fresh."], ["created_at", "2022-11-29 19:00:13.448979"], ["updated_at", "2022-11-29 19:00:13.448979"]]
+  [1m[36mProduct Create (0.1ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "SAMBA CLASSIC SHOES"], ["brand", "adidas"], ["price", 60], ["description", "Getting up and down the field with speed is the name of the indoor game. The Samba has dominated indoor soccer for decades for a reason. This kids' version of the legendary soccer shoes features a leather upper and a lightweight EVA midsole for better response on indoor surfaces."], ["created_at", "2022-11-29 19:00:13.449659"], ["updated_at", "2022-11-29 19:00:13.449659"]]
+  [1m[36mProduct Create (1.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Men's UA HOVR™ Phantom 3 Reflect Running Shoes"], ["brand", "underarmor"], ["price", 98], ["description", "The off-season is for getting better. That means lots of running. Fast, stretchy UA HOVR™ Phantom 3 helps you explode through interval after interval with even more energy-returning UA HOVR™ cushioning. Run now…win later."], ["created_at", "2022-11-29 19:00:13.450224"], ["updated_at", "2022-11-29 19:00:13.450224"]]
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Fresh Foam X 1080v12"], ["brand", "New Balance"], ["price", 159], ["description", "This model runs large, compared to previous versions. You may consider ordering down from your normal size.\n\n  If we only made one running shoe, that shoe would be the 1080. What makes the 1080 unique isn’t just that it’s the best running shoe we make, it’s also the most versatile. The 1080 delivers top-of-the-line performance to every kind of runner, whether you’re training for world-class competition, or catching a rush hour train. The Fresh Foam X 1080v12 represents a consistent progression of the models signature qualities"], ["created_at", "2022-11-29 19:00:13.452088"], ["updated_at", "2022-11-29 19:00:13.452088"]]
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", " Chuck Taylor All Star Classic"], ["brand", "Converse"], ["price", 65], ["description", "Its how and where you take your Chucks. The legacy is long, but what comes next is up to you. We just make the shoe. You make the stories"], ["created_at", "2022-11-29 19:00:13.453547"], ["updated_at", "2022-11-29 19:00:13.453547"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 11:00:25 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 84ms (Views: 0.9ms | ActiveRecord: 15.5ms | Allocations: 3747)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-29 11:00:25 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 13.7ms | Allocations: 2420)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.8ms | Allocations: 2788)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 11:00:29 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 844)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-29 11:00:29 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 12.8ms | Allocations: 2363)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 1.1ms | Allocations: 2731)
+
+
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 11:00:30 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 848)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-29 11:00:30 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 14.7ms | Allocations: 2366)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.6ms | Allocations: 2739)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Destroy (0.4ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 13]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 14]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 15]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 16]]
+  [1m[36mProduct Destroy (0.2ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 17]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 18]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 19]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 20]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 21]]
+  [1m[36mProduct Destroy (0.2ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 22]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 23]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 24]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 25]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 26]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 27]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 28]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 29]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 30]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 31]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 32]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 33]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 34]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 35]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 36]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 37]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 38]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 39]]
+  [1m[36mProduct Destroy (0.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = $1[0m  [["id", 40]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:59:in `block in generate_unique_session_token'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Demo_User"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo_user@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "demo_user@gmail.com"], ["username", "Demo_User"], ["password_digest", "[FILTERED]"], ["session_token", "[FILTERED]"], ["created_at", "2022-11-29 19:02:34.606718"], ["updated_at", "2022-11-29 19:02:34.606718"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Force 1"], ["brand", "Nike"], ["price", 110], ["description", "This is what legends are made of. The Nike Air Force 1 LE brings back the ’82 hardwood icon into an everyday style in all-white or all-black. The durability, feel and Air are still there for those who love a classic."], ["created_at", "2022-11-29 19:02:34.607934"], ["updated_at", "2022-11-29 19:02:34.607934"]]
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Metcon 7"], ["brand", "Nike"], ["price", 110], ["description", "The Nike Metcon 7 is the gold standard for weight training—even tougher and more stable than previous versions. We've also added React foam that ups the comfort to keep you ready for high-intensity cardio. Plus, a tab locks down your laces so you can forget about them coming untied when you're focused on your next PR."], ["created_at", "2022-11-29 19:02:34.609398"], ["updated_at", "2022-11-29 19:02:34.609398"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Stan Smith Shoes"], ["brand", "adidas"], ["price", 76], ["description", "Millions of people have laced into adidas Stan Smith sneakers since the '70s, and every person puts their own spin on the look. So simple, versatile and fresh, these classic shoes adapt effortlessly. They can be dressed up or down. They look just as good on runways as on city streets. So wherever you wear this pair, you can count on them to help express your personal style. We made them, but you get to make them your own.\n\n  Made in part with recycled content generated from production waste, e.g., cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content."], ["created_at", "2022-11-29 19:02:34.610875"], ["updated_at", "2022-11-29 19:02:34.610875"]]
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "NMD_R1 PRIMEBLUE SHOES"], ["brand", "adidas"], ["price", 150], ["description", "Pack your bag, lace up and get going. City adventures beckon in these NMD_R1 shoes. An update to an acclaimed '80s runner from the adidas archive, these modern sneakers have a soft, stretchy knit upper and energy-returning Boost cushioning for all-day comfort. Bold color and signature midsole plugs make a statement, so wherever you're headed, you're sure to show up in style.\n\n  This product is made with Primeblue, a high-performance recycled material made in part with Parley Ocean Plastic. 50% of the upper is textile, 75% of the textile is Primeblue yarn. No virgin polyester."], ["created_at", "2022-11-29 19:02:34.612338"], ["updated_at", "2022-11-29 19:02:34.612338"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Men's UA HOVR™ Turbulence Running Shoes"], ["brand", "underarmour"], ["price", 70], ["description", "Distance runners need a perfect mix of cushion, bounce, durability, and efficiency. And that's exactly what you're getting with the UA HOVR™ Turbulance—responsive cushioning, a smooth ride, and miles of comfort."], ["created_at", "2022-11-29 19:02:34.613916"], ["updated_at", "2022-11-29 19:02:34.613916"]]
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Club C 85 Vintage Shoes"], ["brand", "Reebok"], ["price", 85], ["description", "Talking their cue from the '80s court classic, these shoes are all about simplicity. They have a leather upper and a timeless easy-to-wear style. The EVA midsole gives you lightweight cushioning."], ["created_at", "2022-11-29 19:02:34.615148"], ["updated_at", "2022-11-29 19:02:34.615148"]]
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Air Jordan 1 Mid Shoes"], ["brand", "nike"], ["price", 125], ["description", "Inspired by the original AJ1, the Air Jordan 1 Mid offers fans a chance to follow in MJ's footsteps. Fresh color trims the clean, classic materials, imbuing modernity into a classic design.\n "], ["created_at", "2022-11-29 19:02:34.616101"], ["updated_at", "2022-11-29 19:02:34.616101"]]
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Blazer Mid '77 Vintage"], ["brand", "nike"], ["price", 105], ["description", "In the ‘70s, Nike was the new shoe on the block. So new in fact, we were still breaking into the basketball scene and testing prototypes on the feet of our local team. Of course, the design improved over the years, but the name stuck. The Nike Blazer Mid ’77 Vintage—classic since the beginning."], ["created_at", "2022-11-29 19:02:34.616783"], ["updated_at", "2022-11-29 19:02:34.616783"]]
+  [1m[36mProduct Create (0.2ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Nike Air VaporMax Plus"], ["brand", "nike"], ["price", 178], ["description", "The Nike Air VaporMax Plus looks to the past and propels you into the future. Nodding to the 1998 Air Max Plus with its floating cage, padded upper and heel logo, it adds revolutionary VaporMax Air technology to ramp up the comfort and create a modern look."], ["created_at", "2022-11-29 19:02:34.617416"], ["updated_at", "2022-11-29 19:02:34.617416"]]
+  [1m[36mProduct Create (3.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", " Nike ZoomX Invincible Run Flyknit 2"], ["brand", "nike"], ["price", 180], ["description", "Avoiding injury is crucial no matter if you’re tackling a 20-miler in the middle of marathon prep or stockpiling tempo runs together. Specifically designed to offset the attrition of your toughest trainings, these shoes boast a stack of mattress-like cushioning to help you stay on your feet today, tomorrow and beyond. An unbelievable sense of springy propulsion entices you into taking another stride (and then another) for responsive comfort that lets you focus on your run—not the potential repercussions."], ["created_at", "2022-11-29 19:02:34.618948"], ["updated_at", "2022-11-29 19:02:34.618948"]]
+  [1m[36mProduct Create (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "440 SUPERSTAR SHOES"], ["brand", "adidas"], ["price", 65], ["description", "From the basketball court to the classroom. Everyone deserves a pair of adidas Superstars Shoes. This kids' version celebrates 50 years of the classic shell-toe design. From the distinctive serrated 3-Stripes to the comfortable rubber cupsole, this anniversary edition honors an icon. Whether they sport all white, all black or something in between, these shoes keep little ones looking fresh."], ["created_at", "2022-11-29 19:02:34.623467"], ["updated_at", "2022-11-29 19:02:34.623467"]]
+  [1m[36mProduct Create (0.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "SAMBA CLASSIC SHOES"], ["brand", "adidas"], ["price", 60], ["description", "Getting up and down the field with speed is the name of the indoor game. The Samba has dominated indoor soccer for decades for a reason. This kids' version of the legendary soccer shoes features a leather upper and a lightweight EVA midsole for better response on indoor surfaces."], ["created_at", "2022-11-29 19:02:34.624768"], ["updated_at", "2022-11-29 19:02:34.624768"]]
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Men's UA HOVR™ Phantom 3 Reflect Running Shoes"], ["brand", "underarmor"], ["price", 98], ["description", "The off-season is for getting better. That means lots of running. Fast, stretchy UA HOVR™ Phantom 3 helps you explode through interval after interval with even more energy-returning UA HOVR™ cushioning. Run now…win later."], ["created_at", "2022-11-29 19:02:34.625597"], ["updated_at", "2022-11-29 19:02:34.625597"]]
+  [1m[36mProduct Create (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Fresh Foam X 1080v12"], ["brand", "New Balance"], ["price", 159], ["description", "This model runs large, compared to previous versions. You may consider ordering down from your normal size.\n\n  If we only made one running shoe, that shoe would be the 1080. What makes the 1080 unique isn’t just that it’s the best running shoe we make, it’s also the most versatile. The 1080 delivers top-of-the-line performance to every kind of runner, whether you’re training for world-class competition, or catching a rush hour train. The Fresh Foam X 1080v12 represents a consistent progression of the models signature qualities"], ["created_at", "2022-11-29 19:02:34.626611"], ["updated_at", "2022-11-29 19:02:34.626611"]]
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("name", "brand", "price", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", " Chuck Taylor All Star Classic"], ["brand", "Converse"], ["price", 65], ["description", "Its how and where you take your Chucks. The legacy is long, but what comes next is up to you. We just make the shoe. You make the stories"], ["created_at", "2022-11-29 19:02:34.629406"], ["updated_at", "2022-11-29 19:02:34.629406"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/session" for 127.0.0.1 at 2022-11-29 11:02:41 -0800
+Processing by Api::SessionsController#show as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12:in `current_user'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 848)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-29 11:02:41 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (6.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 14.9ms | Allocations: 1530)
+Completed 200 OK in 24ms (Views: 16.3ms | ActiveRecord: 6.5ms | Allocations: 1900)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8038722758177860770)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateActiveStorageTables (20221129190341)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221129190341"]]
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (13.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8038722758177860770)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

@@ -11,4 +11,7 @@
 #  updated_at  :datetime         not null
 #
 class Product < ApplicationRecord
+
+  has_many_attached :photos
+
 end
