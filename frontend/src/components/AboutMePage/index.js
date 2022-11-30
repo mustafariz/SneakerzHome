@@ -1,12 +1,12 @@
 import './AboutMe.css'
-import { AiFillGithub, AiOutlineTwitter, AiFillLinkedin } from 'react-icons/ai'
+// import { AiFillGithub, AiOutlineTwitter, AiFillLinkedin } from 'react-icons/ai'
 
 
 const AboutMe = () => {
 
     return (
        <>
-       <div className='about-me-page'>
+       {/* <div className='about-me-page'>
     
             <div className='about-me-header'>
                 <h1>My Links</h1>
@@ -19,7 +19,7 @@ const AboutMe = () => {
                 </div>
                
             </div>
-       </div>
+       </div> */}
        </>
     )
 }
