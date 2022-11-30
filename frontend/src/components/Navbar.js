@@ -23,7 +23,7 @@ function Navbar() {
         <div className='nav-name'><NavLink exact to="/" style={{ textDecoration: 'none' }}><h1 className='name'>SneakerzHome</h1></NavLink></div>
           <div className='nav-links'>
             <NavLink exact to="/" style={{ textDecoration: 'none' }}><div className='store'>Store</div></NavLink>
-            <NavLink exact to="/catalog" style={{ textDecoration: 'none' }}><div className='catalog'>Brands</div></NavLink>
+            <NavLink exact to="/shoes" style={{ textDecoration: 'none' }}><div className='catalog'>Brands</div></NavLink>
             <NavLink exact to="/about-me" style={{ textDecoration: 'none' }}><div className='about-me'>About </div></NavLink>
           </div>
       </li>

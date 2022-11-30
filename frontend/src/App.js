@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import AboutMe from "./components/AboutMePage";
 import Footer from "./components/Footer";
 import ProductIndexPage from "./components/ProductIndexPage";
+import ProductShowPage from "./components/ProductShowPage";
 import './App.css'
 
 
@@ -15,14 +16,15 @@ function App() {
   return (
     
     <>
-    
-     
-     
-     <Navbar />
-     <Switch>
-
+    <Navbar />
+    <Switch>
+      
       <Route exact path="/">
         <Home />
+      </Route>
+
+      <Route path="/about-me">
+        <AboutMe/>
       </Route>
 
       <Route path="/login">
@@ -33,19 +35,17 @@ function App() {
         <SignupFormPage/>
       </Route>
 
-       <Route path="/users/:id">
-        <ProfilePage/>
-      </Route>
-
-      <Route path="/products">
+      <Route path="/shoes">
         <ProductIndexPage />
       </Route>
 
-      <Route path="/about-me">
-        <AboutMe/>
+      <Route path="/products/:productId">
+        <ProductShowPage />
       </Route>
 
-
+      <Route path="/users/:id">
+        <ProfilePage/>
+      </Route>
 
     </Switch>
     <Footer/>

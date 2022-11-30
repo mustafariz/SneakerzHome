@@ -1,4 +1,4 @@
-import {useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import './ProductIndexItem.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,6 @@ const ProductIndexItem = ({product}) => {
   const history = useHistory();
   const photo = product.photoUrl[0];
 
-
   const [hoverPhoto, setHoverPhoto] = useState(photo);
   let photo2;
 
@@ -22,11 +21,11 @@ const ProductIndexItem = ({product}) => {
   }
 
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    let path = `products/${product.id}`
-    history.push(path);
-  }
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   let path = `products/${product.id}`
+  //   history.push(path);
+  // }
 
 
   return (
@@ -40,8 +39,9 @@ const ProductIndexItem = ({product}) => {
         <h1>{product.name}</h1>
         <h2>{product.brand}</h2>
         <h3>{product.price}</h3>
-        <button className='learn-more' onClick={handleClick}>Learn More</button>
       </div>
+      <Link to={`/products/${product.id}`}>Learn More
+      </Link>
     </div>
     </>
   )
