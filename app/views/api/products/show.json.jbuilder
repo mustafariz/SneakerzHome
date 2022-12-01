@@ -4,3 +4,11 @@ json.product do
     json.photo_url @product.photos.map {|product| product.url }
   end
 end
+json.reviews do
+  @products.reviews.each do |review|
+    json.set! review.id do
+      json.extract! review, :id, :title, :body, :rating, :user_id, :product_id
+      json.extract! review.user, :username
+    end
+  end
+end
