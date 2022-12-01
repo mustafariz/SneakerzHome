@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchProduct, getProduct } from '../../store/products';
 import { getCurrentUser } from '../../store/session';
+import ReviewIndex from "../ReviewIndexPage";
 import './ProductShowPage.css';
 
 const ProductShowPage = () => {
@@ -49,7 +50,9 @@ const ProductShowPage = () => {
            </div>
          
          </div>
-         
+         <div className="review-div">
+           <ReviewIndex />
+         </div>
        </>
     )
   }

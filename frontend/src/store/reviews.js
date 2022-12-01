@@ -5,7 +5,7 @@ export const RECEIVE_REVIEW = 'reviews/RECEIVE_REVIEW';
 export const REMOVE_REVIEW = 'reviews/REMOVE_REVIEW';
 
 const receiveReview = review => ({
-  type: REVIEW_REVIEW,
+  type: RECEIVE_REVIEW,
   review
 })
 
