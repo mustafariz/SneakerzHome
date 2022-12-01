@@ -38,7 +38,7 @@ const ProductIndexItem = ({product}) => {
         <img className='product-image' src={hoverPhoto} />
         <h1>{product.name}</h1>
         <h2>{product.brand}</h2>
-        <h3>{product.price}</h3>
+        <h3>${product.price}.00</h3>
       </div>
       <Link to={`/products/${product.id}`}>Learn More
       </Link>

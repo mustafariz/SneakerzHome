@@ -1,21 +1,28 @@
 
 
-* {
-  background-color: #edeef6;
-  color: #1c1d1d;
+{
+  background-color: #e7e8f1;
+  color: #1a1d1d;
   font-family: 'Varela Round', 'sans-serif';
   box-sizing: border-box;
-  max-width: 50%;
+  /* /* max-width: 50%; */
+  background-image: url(../Images/image6.jpg);
+  background-repeat: no-repeat; 
+  width: 50vw;
+  height: 50vh;
+  background-size: cover; 
 }
+
+
 
 button {
   border-radius: 2px;
 }
 
+----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------*/
-/*----------------------------------------------------------------------------*/
-
+/* 
 @keyframes zoominoutsinglefeatured {
   0% {
       transform: scale(1.2, 1.2);
@@ -32,7 +39,7 @@ button {
 
 /*----------------------------------------------------------------------------*/
 
-.u80,
+/* .u80,
 .thermal-keeb,
 .grid-keycaps, 
 .duck {
@@ -83,7 +90,7 @@ button {
 
 /*----------------------------------------------------------------------------*/
 
-.u80 button,
+/* .u80 button,
 .thermal-keeb button,
 .grid-keycaps button,
 .duck button {
@@ -97,7 +104,7 @@ button {
   color: #ffc80f;
   padding: 11px 20px;
   border-radius: 2em;
-}
+} */
 
 .u80 button:hover,
 .thermal-keeb button:hover,
@@ -111,6 +118,6 @@ button {
   -webkit-transition: color 400ms linear;
   -ms-transition: color 400ms linear;
   transition: color 400ms linear;
-}
+} 
 
 

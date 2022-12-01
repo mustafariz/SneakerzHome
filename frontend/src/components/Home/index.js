@@ -2,7 +2,7 @@ import './Home.css';
 import { useSelector } from 'react-redux';
 import {useHistory} from "react-router-dom";
 import React from "react";
-// import pexelsMp4 from ".assets/pexelsMp4"
+
 
 
 
@@ -32,9 +32,7 @@ function Home () {
   return (
     <>
      
-      {/* <div className="main">
-      <video src={pexelsMp4} autoPlay loop muted />
-      </div> */}
+     
      
     <div>{profileButton}</div>
     <div className='home page-container'></div>

@@ -24,28 +24,32 @@ const ProductShowPage = () => {
 
   return (
      <>
-       <div>
-          <div className="left-column">
+       <div  className='showpage'>
+         
+         
+         <div className="left-column">
           <img src ={photo}></img>
           </div>
         
 
         <div className="right-column">
           <div className="product-info">
-          <h1>product.name</h1>
+          <h1>{product.name}</h1>
           <h2>${product.price}.00</h2>
           <p>Tax included. Shipping calculated at checkout.</p>
+          <p>{product.discription}</p>
           </div>
         
            
 
 
-           <p>{product.discription}</p>
+         
         
 
            </div>
          
          </div>
+         
        </>
     )
   }
