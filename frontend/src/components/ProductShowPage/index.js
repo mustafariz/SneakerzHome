@@ -14,6 +14,7 @@ const ProductShowPage = () => {
   const product = useSelector(getProduct(productId));
   const currentUserId = useSelector(getCurrentUser);
   const sessionUser = useSelector(state => state.session.user);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(fetchProduct(productId))
@@ -25,12 +26,11 @@ const ProductShowPage = () => {
 
   return (
      <>
-       <div  className='showpage'>
+      <div  className='showpage'>  
          
-         
-         <div className="left-column">
+        <div className="left-column">
           <img src ={photo}></img>
-          </div>
+        </div>
         
 
         <div className="right-column">
@@ -38,18 +38,23 @@ const ProductShowPage = () => {
           <h1>{product.name}</h1>
           <h2>${product.price}.00</h2>
           <p>Tax included. Shipping calculated at checkout.</p>
-          <p>{product.discription}</p>
+
+
+          <div className="collapsed-description">
+            <button className="description-button" onClick={() => setIsOpen(!isOpen)}>
+              Description:
+              <div className="description-icon">{isOpen ?
+              "Up Arrow" : "Down Arrow"
+              }</div>
+            </button>
+            {isOpen && <div className="collapsed-content">{product.description}</div>}
           </div>
-        
-           
+          </div>
 
 
+        </div>
          
-        
-
-           </div>
-         
-         </div>
+      </div>
          <div className="review-div">
            <ReviewIndex />
          </div>

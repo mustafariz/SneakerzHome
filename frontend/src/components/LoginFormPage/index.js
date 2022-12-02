@@ -43,6 +43,7 @@ function LoginFormPage() {
         <div className="email">
           <label>
             EMAIL
+            <br/>
           <input
           type="text"
           value={credential}
@@ -55,6 +56,7 @@ function LoginFormPage() {
          <div className="password">
           <label>
             PASSWORD
+            <br/>
           <input
           type="password"
           value={password}

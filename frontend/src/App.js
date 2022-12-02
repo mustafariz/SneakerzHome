@@ -3,7 +3,7 @@ import Home from "./components/Home";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from  "./components/SignUpFormPage";
 import ProfilePage from "./components/ProfilePage";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import AboutMe from "./components/AboutMePage";
 import Footer from "./components/Footer";
 import ProductIndexPage from "./components/ProductIndexPage";

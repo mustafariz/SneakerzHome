@@ -1,0 +1,41 @@
+.review-item {
+  margin: 0 15%;
+  padding: 25px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid grey;
+}
+
+.review-icons i {
+  margin: 0 10px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.review-item p {
+  line-height: 2rem;
+}
+
+.review-header + h4 {
+  color: grey;
+  margin-bottom: 20px;
+}
+
+.review-buttons {
+  border: none;
+  opacity: .6;
+}
+
+.review-buttons:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+
+

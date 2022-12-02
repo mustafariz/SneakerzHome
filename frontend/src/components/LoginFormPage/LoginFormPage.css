@@ -13,7 +13,7 @@
   flex-direction: column;
   color: #1c1d1d;
   overflow: auto;
-   background-image: url(../Images/kris-gerhard-0BKZfcamvGg-unsplash.jpg);
+  background-image: url(../Images/kris-gerhard-0BKZfcamvGg-unsplash.jpg);
   background-repeat: no-repeat; 
   width: 100vw;
   height: 130vh;
@@ -127,5 +127,4 @@
 
 .blur{
   backdrop-filter: blur(5px);
-  border: 1px solid black;
 }
