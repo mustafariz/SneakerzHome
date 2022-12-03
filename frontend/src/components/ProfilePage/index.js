@@ -45,8 +45,16 @@ function ProfilePage () {
             </div>
             <div className="account-details">
                 <h1>Account Details</h1>
-                <h5>{sessionUser.firstName} {` ${sessionUser.lastName}`}</h5>
+                <h5>{sessionUser.username}</h5>
                 <h5>{sessionUser.email}</h5>
+            </div>
+            
+            
+            <div className="image">
+            </div>
+
+            
+            <div className="blur">
             </div>
 
          </div>

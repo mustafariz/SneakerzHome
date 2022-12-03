@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
+import { createCartItem } from '../../store/cart';
 import { fetchProduct, getProduct } from '../../store/products';
 import { getCurrentUser } from '../../store/session';
 import ReviewIndex from "../ReviewIndexPage";
@@ -16,13 +17,35 @@ const ProductShowPage = () => {
   const sessionUser = useSelector(state => state.session.user);
   const [isOpen, setIsOpen] = useState(false);
 
+
+
+  let cartItem = {
+    user_id: currentUserId,
+    product_id: productId,
+   };
+
+
+
   useEffect(() => {
     dispatch(fetchProduct(productId))
   }, []);
 
+  const handleSubmit = (e) => {
+    if (!sessionUser) {
+        history.push('/login')
+    } else {
+        dispatch(createCartItem(cartItem))
+    }
+}
+
+
+
   if (!product) return null;
 
   const photo = product.photoUrl[0];
+
+
+
 
   return (
      <>
@@ -40,11 +63,17 @@ const ProductShowPage = () => {
           <p>Tax included. Shipping calculated at checkout.</p>
 
 
+          <button onClick={handleSubmit}
+          className='cart-button'>Add to cart
+            </button>
+
+
           <div className="collapsed-description">
             <button className="description-button" onClick={() => setIsOpen(!isOpen)}>
               Description:
               <div className="description-icon">{isOpen ?
-              "Up Arrow" : "Down Arrow"
+                <i className="fa-solid fa-arrow-up"></i> :               
+                <i className="fa-solid fa-arrow-down"></i> 
               }</div>
             </button>
             {isOpen && <div className="collapsed-content">{product.description}</div>}

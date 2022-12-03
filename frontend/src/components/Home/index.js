@@ -1,6 +1,7 @@
 import './Home.css';
 import { useSelector } from 'react-redux';
 import {useHistory} from "react-router-dom";
+// import airforce from '../assets/nike_air_force_photo1.webp';
 import React from "react";
 
 
@@ -32,10 +33,19 @@ function Home () {
   return (
     <>
      
+     <div className= "homepage"></div>
      
      
     <div>{profileButton}</div>
     <div className='home page-container'></div>
+
+    <div className="image">
+            </div>
+
+            {/* <div className="airforce">
+            <img src={airforce}></img>
+        </div> */}
+
     
     </>
   )

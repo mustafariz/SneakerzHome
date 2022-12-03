@@ -8,8 +8,10 @@ import AboutMe from "./components/AboutMePage";
 import Footer from "./components/Footer";
 import ProductIndexPage from "./components/ProductIndexPage";
 import ProductShowPage from "./components/ProductShowPage";
+import CheckoutPage from "./components/CheckoutPage";
 
 import './App.css'
+import SearchIndexPage from "./components/SearchIndexPage";
 
 
 
@@ -38,6 +40,14 @@ function App() {
 
       <Route path="/shoes">
         <ProductIndexPage />
+      </Route>
+
+      <Route path="/checkout">
+        <CheckoutPage />
+      </Route>
+
+      <Route path="search-results">
+        <SearchIndexPage />
       </Route>
 
       <Route path="/products/:productId">

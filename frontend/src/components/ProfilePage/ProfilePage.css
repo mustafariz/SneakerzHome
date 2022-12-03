@@ -31,3 +31,17 @@
 .account-details h5 {
   margin-bottom: 15px;
 }
+
+
+.image{
+  background-image: url(../Images/image6.jpg);
+    background-repeat: no-repeat; 
+    width: 100vw;
+    height: 110vh;
+    background-size: cover;
+  }
+
+
+  .blur{
+    backdrop-filter: blur(5px);
+  }

@@ -2,7 +2,7 @@ class Api::CartItemsController < ApplicationController
 
   def index
     if current_user
-      @cart_item = current_user.cart_items
+      @cart_items = current_user.cart_items
       render :index
     else
       render json: []
@@ -25,7 +25,7 @@ class Api::CartItemsController < ApplicationController
     if @cart_item.save
       render :show
     else
-      render :json ['Invalid Product'], status 422
+      render :json ['Invalid Product'], status: 422
     end
   end
 

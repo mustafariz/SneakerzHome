@@ -1,0 +1,57 @@
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCartItems, getCartItems } from "../../store/cart";
+import CartIndexItem from '../CartIndexItem'
+import './CartIndexPage.css';
+
+const CartIndexPage = ({closeCartMenu}) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(getCartItems);
+  const sessionUser = useSelector(state => state.session.user);
+
+  let cartMessage;
+  if (cartItems.length == 0) {
+    cartMessage = (
+      <p className="cart-message">Your cart is empty. Start shopping now.</p>
+    )
+  } else {
+    cartMessage = (
+      <Link to="/checkout" style={{ textDecoration: 'none'}}>
+        <div className="checkout-container">
+          <button className="checkout-button">Check Out</button>
+        </div>
+      </Link>
+    )
+  }
+
+  useEffect(() => {
+    dispatch(fetchCartItems());
+  }, [])
+
+  return (
+    <>
+    <div className="cartPage-container">
+      <div className="cartPage-header">
+        <h1>{sessionUser.username}'s Cart</h1>
+        <button
+        className="close-cart"
+        onClick={() => closeCartMenu(false)}
+        >X
+        </button>
+      </div>
+
+      <ul>
+        {
+          cartItems.map(cartItem => <li key={cartItem.id}><CartIndexItem
+          cartItem = {cartItem}
+          />
+          </li>)}
+      </ul>
+      {cartMessage}
+    </div>
+    </>
+  )
+}
+
+export default CartIndexPage;

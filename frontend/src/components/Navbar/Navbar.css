@@ -17,8 +17,11 @@
   position: sticky;
   top: 0px;
   padding: 20px 15%;
-  height: 10vh; 
+  height:7vh; 
   background-color: transparent;
+  background-attachment: fixed;
+  background-position: auto,center top;
+  background-image: url(../Images/image6.jpg);
   
 }
 

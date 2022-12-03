@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import CartIndexPage from '../CartIndexPage';
 import './Navbar.css';
 
 
@@ -11,6 +12,11 @@ function Navbar() {
   const [cartMenu, setCartMenu] = useState(false);
   const [toggleSearch, setToggleSearch] = useState(false);
 
+
+  useEffect(() => {
+    setCartMenu(false)
+  }, [location]);
+
   const hideNavBar = () => {
     if (location.pathname === "/login" || location.pathname === "/signup") {
       return 'hide'
@@ -18,8 +24,6 @@ function Navbar() {
       return 'navbar-container'
     }
   }
-
-
   
   return (
   <>
@@ -43,7 +47,7 @@ function Navbar() {
         <button className="cart" onClick={() => setCartMenu(true)}>
           <div className='cart-icon'><i className="fa-solid fa-cart-shopping"></i></div>
         </button>
-        {/* {cartMenu && <CartIndexPage closeCartMenu={setCartMenu}/>} */}
+        {cartMenu && <CartIndexPage closeCartMenu={setCartMenu}/>}
       </div>
     </div>
   </div>
