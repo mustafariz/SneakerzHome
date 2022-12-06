@@ -15,12 +15,16 @@
   margin: 0 18%;
 }
 
-.account-page h1 {
+/* .account-page h1 {
   font-size: 30px;
   margin-bottom: 30px;
-}
+} */
 
 .order-history {
+  flex: 70%
+}
+
+.order-history h1 {
   flex: 70%
 }
 
@@ -33,13 +37,14 @@
 }
 
 
-.image{
-  background-image: url(../Images/image6.jpg);
-    background-repeat: no-repeat; 
-    width: 100vw;
-    height: 110vh;
-    background-size: cover;
-  }
+/* .image{
+  background-image: url(../Images/image4.jpg);
+  background-repeat: no-repeat; 
+  width: 100vw;
+  height: 130vh;
+  background-size: cover;
+  overflow: auto;
+  }  */
 
 
   .blur{

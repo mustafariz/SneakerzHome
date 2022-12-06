@@ -1,31 +1,67 @@
 
-
-
-
+* {
+  /* background-color: #e6ded2; */
+  color: #1c1d1d;
+  font-family: 'Varela Round', 'sans-serif';
+  box-sizing: border-box;
+  max-width: 100%;
+}
 
 button {
   border-radius: 2px;
 }
 
+@keyframes zoominoutsinglefeatured {
+  0% {
+      transform: scale(1.2, 1.2);
+  }
 
+  100% {
+      transform: scale(1.0, 1.0);
+  }
+}
 
-
-
-
-
-.thermal-keeb .splash-desc, 
-.duck .splash-desc {
-  margin-top: 10%;
+.nikedunk img {
+  animation: zoominoutsinglefeatured 3s;
 }
 
 
 
+.airforce,
+.air-jordan, 
+.Converse {
+    position: relative;
+}
+
+.Converse {
+  display: grid;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  background-color: transparent;
+  margin: 0% 15%;
+}
 
 
-.u80 button:hover,
-.thermal-keeb button:hover,
-.grid-keycaps button:hover,
-.duck button:hover {
+.Converse h1,
+.splashpage h2 {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.Converse h1 {
+  font-size: 40px;
+  padding: 20px 0px;
+}
+
+.Converse{
+    margin-top: 10%;
+}
+
+.airforce button:hover,
+.airforce button:hover,
+.air-jordan button:hover,
+.Converse button:hover {
   background-color: #ffc80f;
   -webkit-transition: background-color 400ms linear;
   -ms-transition: background-color 400ms linear;
@@ -36,28 +72,69 @@ button {
   transition: color 400ms linear;
 } 
 
-.image{
-  background-image: url(../Images/image6.jpg);
-  /* background-repeat: no-repeat;  */
-  width:auto;
-  height: 600px;
-  /* background-size: cover; 
-  background-size: contain; */
-  background-attachment: fixed;
-  background-position: center top;
- 
-
+.airforce button,
+.airforce button,
+.Converse button,
+.air-jordan button {
+    position: absolute;
+    z-index: 1;
+    background-color: transparent;
+    border-style: none;
+    border: solid #ffc80f 2px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ffc80f;
+    padding: 11px 20px;
+    border-radius: 2em;
 }
 
-.homepage img {
-   width: 100vw;
-   background-image: url(../Images/image6.jpg);
+.splash-desc {
+  display: grid;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  background-color: transparent;
+  margin: 0% 15%;
 }
+
 /* 
-@keyframes zoominoutsinglefeatured {
-.airforce {
-  position: relative;
-  margin-top: 10%;
-  animation: zoominoutsinglefeatured 3s;
-  filter: brightness(50%);
-} */
+.Converse img, 
+.airforce img, 
+.air-jordan img {
+    filter: brightness(50%);
+}
+ */
+
+
+
+
+/* .image{
+   background-image: url(../Images/image6.jpg);
+  background-repeat: no-repeat;  */
+  /* width:auto;
+  height: 600px;
+  background-size: cover; 
+  background-size: contain; */
+  /* background-attachment: fixed;
+  background-position: center top; */
+   
+
+  /* .homepage img {
+   width: 100vw;
+   background-image: url(../Images/image6.jpg); */
+
+
+
+   @keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1.2, 1.2);
+    }
+
+    100% {
+        transform: scale(1.0, 1.0);
+    }
+}
+
+.Converse img {
+    animation: zoominoutsinglefeatured 3s;
+}

@@ -5,7 +5,7 @@ import SignupFormPage from  "./components/SignUpFormPage";
 import ProfilePage from "./components/ProfilePage";
 import Navbar from "./components/Navbar/Navbar";
 import AboutMe from "./components/AboutMePage";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import ProductIndexPage from "./components/ProductIndexPage";
 import ProductShowPage from "./components/ProductShowPage";
 import CheckoutPage from "./components/CheckoutPage";
@@ -59,7 +59,7 @@ function App() {
       </Route>
 
     </Switch>
-    <Footer/>
+    {/* <Footer/> */}
 
     </>
   );

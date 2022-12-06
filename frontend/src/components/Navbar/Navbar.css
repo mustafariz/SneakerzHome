@@ -1,4 +1,4 @@
-.navitems {
+.navitems{
   font-size: 17px;
   display: flex;
   align-items: center;
@@ -6,23 +6,22 @@
   font-style: none;
 }
 
-
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid rgb(237, 230, 230) 1px;
+  border-bottom: solid rgb(77, 71, 71) 1px;
   color: #1c1d1d;
   z-index: 10000;
   position: sticky;
   top: 0px;
   padding: 20px 15%;
   height:7vh; 
-  background-color: transparent;
+  /* background-color: transparent;
   background-attachment: fixed;
   background-position: auto,center top;
   background-image: url(../Images/image6.jpg);
-  
+   */
 }
 
 .navitems a:hover{
@@ -31,11 +30,8 @@
 
 }
 
- 
-
 .nav-links {
   display: flex;
-  
 }
 
 .name {
@@ -58,8 +54,7 @@
   display: flex;
   justify-content: space-evenly;
   cursor: pointer;
-  
-}
+  }
 
 .profile-icon, .search-icon, .cart-icon {
   margin: 0px 20px;

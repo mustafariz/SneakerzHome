@@ -37,7 +37,7 @@ const SearchBar = ({closeSearch}) => {
         <button
         type="submit"
         className="search-enter-button">
-        magnifying glass icon
+        <i className="fa-solid fa-magnifying-glass"></i>
         </button>
 
         <input

@@ -1,7 +1,7 @@
-/* .search-error-message {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  padding-top: 100px;
-  font-size: 30px;
-} */
+.no-searchs-found {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 100px;
+    font-size: 30px;
+}

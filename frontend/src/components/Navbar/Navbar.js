@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import CartIndexPage from '../CartIndexPage';
 import './Navbar.css';
+import SearchBar from '../SearchBar';
 
 
 function Navbar() {
@@ -24,6 +25,22 @@ function Navbar() {
       return 'navbar-container'
     }
   }
+
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = (
+      <NavLink to={`/users/${sessionUser.id}`}><i className="fa-regular fa-user"></i></NavLink>
+    );
+  } else {
+    sessionLinks = (
+      <>
+        <NavLink to="/login" className='user-button'><i className="fa-regular fa-user"></i></NavLink>
+      </>
+    );
+  }
+
+  if (toggleSearch) return <SearchBar closeSearch={setToggleSearch}/>
+
   
   return (
   <>
@@ -40,7 +57,7 @@ function Navbar() {
     </ul>
    
     <div className='icons'>
-      {/* <div className='profile-icon'>{sessionLinks}</div> */}
+      {<div className='profile-icon'>{sessionLinks}</div>}
       <div className="search-icon" onClick={(() => setToggleSearch(true))}><i className="fa-solid fa-magnifying-glass"></i></div>
 
       <div className='cart-collapse'>

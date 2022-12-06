@@ -15,7 +15,7 @@ const ReviewIndexItem = ({review}) => {
     reviewButtons = (
       <>
       <EditReviewFormModal review={review}><button className="review-buttons">Edit</button></EditReviewFormModal>
-        <button className="review-buttons" onClick={() => dispatch(deleteReview(review.id))}>X</button>
+        <button className="review-buttons" onClick={() => dispatch(deleteReview(review.id))}><i className="fa-solid fa-trash"></i></button>
       </>
     )
   } else {
