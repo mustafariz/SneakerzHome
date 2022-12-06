@@ -1,10 +1,32 @@
 
 * {
-  /* background-color: #e6ded2; */
+  background-color: transparent;
   color: #1c1d1d;
   font-family: 'Varela Round', 'sans-serif';
   box-sizing: border-box;
   max-width: 100%;
+}
+
+button {
+  border-radius: 2px;
+}
+
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+
+@keyframes zoominoutsinglefeatured {
+  0% {
+      transform: scale(1.2, 1.2);
+  }
+
+  100% {
+      transform: scale(1.0, 1.0);
+  }
+}
+
+.nike{
+  animation: zoominoutsinglefeatured 5s;
 }
 
 button {
@@ -21,46 +43,113 @@ button {
   }
 }
 
-.nikedunk img {
+.nike img {
   animation: zoominoutsinglefeatured 3s;
 }
 
 
+.nike{
+  position: relative;
+}
 
-.airforce,
-.air-jordan, 
+.nike button{
+  position: absolute;
+  z-index: 1;
+  background-color: transparent;
+  border-style: none;
+  border: solid #ffc80f 2px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ffc80f;
+  padding: 11px 20px;
+  border-radius: 2em;
+}
+
+.nike button:hover{
+    background-color: #ffc80f;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+    color: black;
+    -webkit-transition: color 400ms linear;
+    -ms-transition: color 400ms linear;
+    transition: color 400ms linear;
+}
+
+.Converse {
+    background-color: #ffc80f;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+    color: black;
+    -webkit-transition: color 400ms linear;
+    -ms-transition: color 400ms linear;
+    transition: color 400ms linear;
+}
+
+
 .Converse {
     position: relative;
 }
 
+.air-jordan{
+  position: relative;
+}
 .Converse {
   display: grid;
   align-items: center;
   z-index: 1;
   position: absolute;
   background-color: transparent;
-  margin: 0% 15%;
+  margin: 0% 30%;
 }
 
+/* .air-jordan{
+display: grid;
+align-items: center;
+z-index: 1;
+position: absolute;
+background-color: transparent;
+margin: 0% 40%;
+} */
 
-.Converse h1,
-.splashpage h2 {
+.Converse h1 {
     background-color: transparent;
-    color: #ffffff;
+    color: #0f0d0d;
+}
+
+.air-jordan{
+  background-color: transparent;
+  color: #080807;
 }
 
 .Converse h1 {
   font-size: 40px;
-  padding: 20px 0px;
+  padding: 10px 0px;
 }
 
+.air-jordan h1{
+  font-size: 40px;
+  padding: 10px 0px;
+
+}
 .Converse{
     margin-top: 10%;
 }
 
-.airforce button:hover,
-.airforce button:hover,
-.air-jordan button:hover,
+/* .air-jordan button:hover{
+  background-color: #ffc80f;
+    -webkit-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+    color: black;
+    -webkit-transition: color 400ms linear;
+    -ms-transition: color 400ms linear;
+    transition: color 400ms linear;
+} */
+
+
+ 
 .Converse button:hover {
   background-color: #ffc80f;
   -webkit-transition: background-color 400ms linear;
@@ -71,11 +160,18 @@ button {
   -ms-transition: color 400ms linear;
   transition: color 400ms linear;
 } 
+  .air-jordan button:hover{
+  background-color: #ffc80f;
+  -webkit-transition: background-color 400ms linear;
+  -ms-transition: background-color 400ms linear;
+  transition: background-color 400ms linear;
+  color: black;
+  -webkit-transition: color 400ms linear;
+  -ms-transition: color 400ms linear;
+  transition: color 400ms linear;
+}  
 
-.airforce button,
-.airforce button,
-.Converse button,
-.air-jordan button {
+.Converse button  { 
     position: absolute;
     z-index: 1;
     background-color: transparent;
@@ -83,9 +179,23 @@ button {
     border: solid #ffc80f 2px;
     cursor: pointer;
     font-size: 20px;
-    color: #ffc80f;
+    color: #080807;
     padding: 11px 20px;
     border-radius: 2em;
+}
+
+.air-jordan button {
+  position: absolute;
+    z-index: 1;
+    background-color: transparent;
+    border-style: none;
+    border: solid #ffc80f 2px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #080807;
+    padding: 11px 20px;
+    border-radius: 2em;
+
 }
 
 .splash-desc {
@@ -97,15 +207,24 @@ button {
   margin: 0% 15%;
 }
 
-/* 
-.Converse img, 
-.airforce img, 
-.air-jordan img {
+
+.Converse img{
+/* .air-jordan img { */
     filter: brightness(50%);
+    
+    
 }
- */
+ 
 
+.Converse {
+    margin-top: 10%;
+}
 
+.air-jordan{
+  margin-top: 10%;
+  height: px;
+  width: 700px;
+  }
 
 
 /* .image{
@@ -125,16 +244,6 @@ button {
 
 
 
-   @keyframes zoominoutsinglefeatured {
-    0% {
-        transform: scale(1.2, 1.2);
-    }
+   
 
-    100% {
-        transform: scale(1.0, 1.0);
-    }
-}
 
-.Converse img {
-    animation: zoominoutsinglefeatured 3s;
-}
